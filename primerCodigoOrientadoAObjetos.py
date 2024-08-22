@@ -18,8 +18,14 @@ class convinatoria:
         return number if number != 0 else 1
     
     def calcular(self,FORMULA):
-        return eval(self.listaFormula[FORMULA-1]) if (FORMULA > 0 and FORMULA < 7) else "Error elegiste algo que no existe" if FORMULA%2 != 1 else None if self.CantidadDeObjetos > self.CantidadDeObjetosPorGrupo else "ERROR Cantidad de objetos por grupo > cantidad de objetos"
-         
+        if (FORMULA>0 and FORMULA<7):
+            if (FORMULA%2 != 1):
+                return "Error ya que elegiste una opcion sin repeticion y los grupos contienen mas elementos que los conjuntos"
+            else:
+                return eval(self.listaFormula[FORMULA-1])
+        else:
+            return "Error ya que elegiste un valor fuera de las opciones" 
+
 
 if __name__ == "__main__":
     h = convinatoria(int(input("cantidad de objetos")),int(input("cantidad de objetos por grupo")))
